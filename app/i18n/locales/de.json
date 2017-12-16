@@ -1,0 +1,133 @@
+{
+  "global_cancel": "Abbrechen",
+  "global_done": "Fertig",
+  "global_next": "Weiter",
+  "global_no": "Nein",
+  "global_ok": "OK",
+  "global_yes": "Ja",
+  "global_previous": "Zurück",
+  "global_save": "Speichern",
+  "global_skip": "Überspringen",
+
+  "global_error8chars": "muss mindestens 8 Zeichen lang sein.",
+  "global_errorCredentials": "Anmeldedaten falsch",
+  "global_errorInvalid": "ist ungültig.",
+  "global_errorPasswordConfirmation": "Passwörter stimmen nicht überein",
+  "global_errorRequired": "benötigt",
+  "global_errorUsedAccount": "Dieser Account existiert nicht oder ist bereits vergeben.",
+  "global_errorWrongAccount": "falscher Benutzername",
+
+  "accountCreationIntro_title": "Jetzt Account einrichten!",
+  "accountCreationIntro_description": "Wir benötigen noch ein paar Informationen bevor es los geht.",
+  "accountCreationIntro_button": "Jetzt fortfahren!",
+
+  "accountDetails_detailsTitle": "Benutzerangaben",
+  "accountDetails_detailsDescription": "Bitte gebe deinen Beschwörernamen und Region an",
+  "accountDetails_rolesTitle": "Rollen",
+  "accountDetails_rolesDescription": "Was sind deine Lieblingsrollen?",
+  "accountDetails_goalTitle": "Ziel",
+  "accountDetails_goalDescription": "Warum bist du hier?",
+
+  "adsSettings_title": "Werbung",
+  "adsSettings_subtitle": "Möchtest du uns unterstützen?",
+  "adsSettings_alertTitle": "Bist du dir sicher?",
+  "adsSettings_alertContent": "Möchtest du uns wirklich nicht länger unterstützen?",
+  "adsSettings_description": "Da es unser Ziel ist dein Gameplay zu verbessern und nicht reich zu werden, haben wir entschieden, dass QueueUp auch weiterhin kostenlos sein wird. Jedoch werden wir in Zukunft Werbung einblenden, um die Server- und die vielen Lizenzen-Gebühren bezahlen zu können. Du kannst die Werbung natürlich ausblenden, allerdings solltest du wissen, dass sie uns viel hilft.",
+
+  "championsSettings_toast": "Maximal 5 Champions. Entferne zunächst ein paar.",
+  "championsSettings_title": "Champions",
+  "championsSettings_subtitle": "Wähle deine Lieblingschampions",
+
+  "chat_placeholder": "Schreibe hier...",
+  "chat_button": "Senden",
+
+  "communicationSettings_title": "Mitteilungen",
+
+  "goals_funDescription": "Spaß haben und Freunde finden",
+  "goals_winDescription": "Alles geben und Aufsteigen",
+
+  "goalSettings_title": "Ziele",
+  "goalSettings_subtitle": "Wähle deine Ziele",
+
+  "home_emptyTitle": "keine weiteren Vorschläge",
+  "home_emptySubtitle": "Komm später zurück!",
+
+  "loadingPage_title": "Account wird synchronisiert",
+  "loadingPage_description": "Dies kann ein paar Sekunden dauern",
+
+  "localesSettings_title": "Sprachen",
+  "localesSettings_subtitle": "Wähle die Sprachen, die du sprichst",
+
+  "matchModal_title": "Glückwunsch Beschwörer!",
+  "matchModal_subtitle": "Du hast einen neuen Kontakt!",
+  "matchModal_button": "Super!",
+
+  "matches_newMatch": "neuer Kontakt",
+  "matches_emptyTitle": "noch keine Kontakte",
+  "matches_emptySubtitle": "Wisch mehr um welche zu bekommen!",
+
+  "notifications_title": "Ding Ding!",
+  "notifications_description": "QueueUp benötigt deine Erlaubnis Benachrichtigen anzuzeigen um dich auf neue Kontakte und Nachrichten aufmerksam zu machen.",
+  "notifications_button": "JETZT MACHEN!",
+
+  "onboarding_matchTitle": "Finde andere League-Spieler",
+  "onboarding_matchDescription": "Wähle nur die Profile, die zu dir passen",
+  "onboarding_playTitle": "Spiele mit deinen neuen Teamkollegen",
+  "onboarding_playDescription": "Genieße das Spiel ohne Trolle und konzentriere dich drauf, besser zu werden.",
+  "onboarding_winTitle": "Gewinne in jeder Situation",
+  "onboarding_winDescription": "Du hast die Serie nicht gewonnen? Wenigstens bist du nicht getiltet, weil die Mitte absichtlich gefeedet hat.",
+
+  "passwordSettings_title": "Passwort",
+  "passwordSettings_currentPassword": "Altes Passwort",
+  "passwordSettings_newPassword": "Neues Passwort",
+  "passwordSettings_newPasswordConfirmation": "Neues Passwort wiederholen",
+
+  "queues_RANKED_SOLO_5x5": "Solo 5vs5",
+  "queues_RANKED_FLEX_SR": "Flexi 5vs5",
+  "queues_RANKED_TEAM_3x3": "Team 3vs3",
+
+  "rolesSettings_title": "Rollen",
+  "rolesSettings_subtitle": "Wähle deine Lieblingsrollen",
+
+  "settings_title": "Einstellungen",
+  "settings_account": "Benutzer",
+  "settings_ads": "Werbungs-Einstellungen",
+  "settings_changePassword": "Passwort ändern",
+  "settings_preferences": "Einstellungen",
+  "settings_communication": "Kommunikation",
+  "settings_suggestions": "Vorschlags-Einstellungen",
+  "settings_summoner": "Beschwörer",
+  "settings_champions": "Lieblingschampions",
+  "settings_roles": "Lieblingsrollen",
+  "settings_locales": "Sprachen",
+  "settings_goals": "Ziele",
+  "settings_other": "Weiteres",
+  "settings_credits": "Credits",
+  "settings_logout": "Abmelden",
+  "settings_profile": "Mein Profil",
+  "sign_email": "E-Mail Adresse",
+  "sign_password": "Passwort",
+  "sign_confirmation": "Bestätigen",
+  "sign_signIn": "Anmelden",
+  "sign_signUp": "Registrieren",
+  "sign_signInButton": "Anmelden",
+  "sign_signUpButton": "Registrieren",
+
+  "suggestionsSettings_title": "Vorschläge",
+  "suggestionsSettings_subtitle": "Wähle den Modus, den zu zuerst sehen möchtest.",
+
+  "summonerCard_rank": "Rang",
+  "summonerCard_winrate": "Siegesrate",
+
+  "summonerInfos_summonerName": "Beschwörername",
+  "summonerInfos_region": "Region",
+
+  "userDetails_ranksTitle": "Rang",
+  "userDetails_ranksWinrate": "Siegesrate",
+  "userDetails_favoriteRolesTitle": "Lieblingsrollen",
+  "userDetails_favoriteChampionsTitle": "Lieblingschampions",
+  "userDetails_localesTitle": "Sprachen",
+  "userDetails_communicationTitle": "Kommunikation",
+  "userDetails_update": "Meine Ranglisten-Info aktualisieren",
+  "userDetails_profileUpdated": "Dein Profil wurde aktualisiert."
+}

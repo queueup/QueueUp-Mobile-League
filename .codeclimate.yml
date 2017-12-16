@@ -1,0 +1,16 @@
+version: 2
+plugins:
+  eslint:
+    enabled: true
+  duplication:
+    enabled: true
+    checks:
+      Similar code:
+        enabled: false
+    config:
+      languages:
+      - javascript
+exclude_patterns:
+- android/**/*
+- assets/**/*
+- ios/**/*

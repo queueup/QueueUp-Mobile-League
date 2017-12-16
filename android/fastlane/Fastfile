@@ -1,0 +1,54 @@
+fastlane_version "2.61.0"
+
+default_platform :android
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Deploy a new alpha version to the Google Play Store"
+  lane :alpha do
+    gradle(task: "assembleRelease")
+    supply(
+      track: "alpha"
+      # apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+    )
+  end
+
+  desc "Submit a new Beta Build to the Google Play Store"
+  lane :beta do
+    gradle(task: "assembleRelease")
+    supply(
+      track: "beta"
+      # apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+    )
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :release do
+    gradle(task: "assembleRelease")
+    supply(
+      check_superseded_tracks: true,
+      track: "production"
+    )
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    slack(
+      message: "New Android done."
+    )
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false
+    )
+  end
+end

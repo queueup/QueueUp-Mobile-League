@@ -1,0 +1,65 @@
+{
+	"name": "QueueUp",
+	"version": "1.0.5",
+	"private": true,
+	"scripts": {
+		"check-translations": "babel-node scripts/check-translations.js",
+		"deploy-alpha": "cd ios && fastlane ios alpha && cd ../android && ENVFILE=../.env.staging fastlane alpha",
+		"deploy-beta": "cd ios && fastlane ios beta && cd ../android && ENVFILE=../.env.production fastlane beta",
+		"deploy-release": "cd ios && fastlane ios release && cd ../android && ENVFILE=../.env.production fastlane release",
+		"fetch-champions": "babel-node scripts/fetch-champions.js",
+		"lint": "./node_modules/.bin/eslint app/* --fix",
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"translate": "babel-node scripts/update-translations.js && ./node_modules/.bin/eslint app/i18n/locales/*.json"
+	},
+	"dependencies": {
+		"axios": "^0.17.0",
+		"humps": "^2.0.1",
+		"immutability-helper": "^2.4.0",
+		"pusher-js": "^4.2.1",
+		"react": "^16.0.0-beta.5",
+		"react-native": "0.48.3",
+		"react-native-admob": "^2.0.0-beta.2",
+		"react-native-animatable": "^1.2.4",
+		"react-native-config": "^0.10.0",
+		"react-native-easy-toast": "^1.0.9",
+		"react-native-i18n": "^2.0.9",
+		"react-native-keyboard-aware-scroll-view": "^0.3.0",
+		"react-native-onesignal": "^3.0.6",
+		"react-native-router-flux": "^4.0.0-beta.21",
+		"react-native-sentry": "^0.30.0",
+		"react-redux": "^5.0.6",
+		"realm": "^2.0.2",
+		"redux": "^3.7.2",
+		"redux-thunk": "^2.2.0"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-eslint": "^8.0.1",
+		"babel-jest": "21.0.2",
+		"babel-preset-react-native": "3.0.2",
+		"deepl-translator": "^1.2.0",
+		"eslint": "^4.6.1",
+		"eslint-plugin-import": "^2.7.0",
+		"eslint-plugin-json": "^1.2.0",
+		"eslint-plugin-react": "^7.3.0",
+		"eslint-plugin-require": "^0.0.1",
+		"eslint-plugin-standard": "^3.0.1",
+		"jest": "21.0.2",
+		"jsonfile": "^4.0.0",
+		"prompt": "^1.0.0",
+		"react-test-renderer": "16.0.0"
+	},
+	"jest": {
+		"preset": "react-native"
+	},
+	"rnpm": {
+		"assets": [
+			"./assets/fonts/"
+		]
+	},
+	"standard": {
+		"parser": "babel-eslint"
+	}
+}

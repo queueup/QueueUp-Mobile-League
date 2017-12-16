@@ -1,0 +1,79 @@
+fastlane_version "2.62.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    update_fastlane
+    
+    increment_build_number(
+      xcodeproj: "./QueueUp.xcodeproj",
+      build_number: latest_testflight_build_number + 1
+    )
+
+    match(
+      type: "appstore",
+      git_url: ENV['APPLE_PROFILE_GIT_URL']
+    )
+  end
+  
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :alpha do
+    gym(scheme: "QueueUp - Staging")
+    testflight(
+      distribute_external: true,
+      changelog: "Changelog",
+      beta_app_description: 'QueueUp - League of Legends Edition',
+      beta_app_feedback_email: 'contact@queueup.gg'
+    )
+  end
+  
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do
+    gym(scheme: "QueueUp - Staging")
+    testflight(
+      distribute_external: true,
+      changelog: "Changelog",
+      beta_app_description: 'QueueUp - League of Legends Edition',
+      beta_app_feedback_email: 'contact@queueup.gg'
+    )
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :release do
+    gym(scheme: "QueueUp - Production")
+    deliver(
+      automatic_release: true,
+      force: true,
+      run_precheck_before_submit: false,
+      submit_for_review: true,
+      submission_information: {
+        add_id_info_uses_idfa: true,
+        add_id_info_tracks_install: true,
+        add_id_info_limits_tracking: true,
+    
+        add_id_info_serves_ads: false,
+        add_id_info_tracks_action: false,
+        content_rights_has_rights: false,
+        content_rights_contains_third_party_content: false,
+        export_compliance_uses_encryption: false,
+        export_compliance_contains_proprietary_cryptography: false,
+        export_compliance_contains_third_party_cryptography: false,
+        export_compliance_encryption_updated: false
+      }
+    )
+  end
+
+  after_all do |lane|
+    slack(
+      message: "New iOS Release done."
+    )
+  end
+
+  error do |lane, exception|
+    slack(
+      message: exception.message,
+      success: false
+    )
+  end
+end

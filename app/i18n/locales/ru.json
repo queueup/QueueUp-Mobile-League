@@ -1,0 +1,133 @@
+{
+  "global_cancel": "Отменить",
+  "global_done": "Готово",
+  "global_next": "Далее",
+  "global_no": "Нет",
+  "global_ok": "OK",
+  "global_previous": "Назад",
+  "global_save": "Сохранить",
+  "global_skip": "Пропустить",
+  "global_yes": "Да",
+
+  "global_error8chars": "Должно быть больше 8 символов",
+  "global_errorCredentials": "Неверные данные",
+  "global_errorInvalid": "Неверно",
+  "global_errorPasswordConfirmation": "Пароли не совпадают",
+  "global_errorRequired": "Обязательное поле",
+  "global_errorUsedAccount": "Такого аккаунта не существует или он уже используется",
+  "global_errorWrongAccount": "Неверный аккаунт",
+
+  "accountCreationIntro_title": "Давайте настроим Ваш аккаунт!",
+  "accountCreationIntro_description": "Прежде чем начать, нам потребуется некоторая информация",
+  "accountCreationIntro_button": "Вперед!",
+
+  "accountDetails_detailsTitle": "Информация об аккаунте",
+  "accountDetails_detailsDescription": "Пожалуйста введите имя призывателя и регион",
+  "accountDetails_rolesTitle": "Роли",
+  "accountDetails_rolesDescription": "Какие Ваши любимые роли?",
+  "accountDetails_goalTitle": "Цель",
+  "accountDetails_goalDescription": "Зачем Вы здесь?",
+
+  "adsSettings_title": "Реклама",
+  "adsSettings_subtitle": "Поддержите нас?",
+  "adsSettings_alertTitle": "Вы уверены?",
+  "adsSettings_alertContent": "Вы действительно хотите прекратить поддерживать нас?",
+  "adsSettings_description": "Так как нашей целью является улучшение вашего игрового процесса, а не получение прибыли, мы решили оставить QueueUp абсолютно бесплатным и добавить рекламу для того, чтобы нам было проще оплатить содержание серверов и многих лицензий, которые должны быть оплачены. Вы все еще можете их отключить, но вам действительно нужно знать что нам они очень сильно помогают.",
+
+  "championsSettings_toast": "Максимум 5 чемпионов, пожалуйста отмените выбор кого-нибудь",
+  "championsSettings_title": "Чемпионы",
+  "championsSettings_subtitle": "Выберите своих любимых чемпионов",
+
+  "chat_placeholder": "Введите сообщение...",
+  "chat_button": "Отправить",
+
+  "communicationSettings_title": "Связь",
+
+  "goals_funDescription": "Повеселиться и завести новых друзей",
+  "goals_winDescription": "Усовершенствовать навыки и поднять ранг",
+  "goalSettings_title": "Цели",
+  "goalSettings_subtitle": "Выберите свои цели",
+
+  "home_emptyTitle": "Предложений больше нет",
+  "home_emptySubtitle": "Пожалуйста, зайдите позже!",
+
+  "loadingPage_title": "Синхронизация аккаунта!",
+  "loadingPage_description": "Это займет несколько секунд",
+
+  "localesSettings_title": "Языки",
+  "localesSettings_subtitle": "Выберите языки, на которых вы говорите",
+
+  "matchModal_title": "Поздравляем, призыватель!",
+  "matchModal_subtitle": "У Вас только что появилось соответствие!",
+  "matchModal_button": "Ура!",
+
+  "matches_newMatch": "Новое соответствие",
+  "matches_emptyTitle": "Соответствий пока нет",
+  "matches_emptySubtitle": "Дайте больше оценок чтобы найти соответствия!",
+
+  "notifications_title": "Динь динь!",
+  "notifications_description": "QueueUp потребуются разрешения на оповещения чтобы дать Вам знать, когда у вас будут новые соответствия или сообщения",
+  "notifications_button": "ДАВАЙТЕ!",
+
+  "onboarding_matchTitle": "Объединяйтесь с другими игроками Лиги",
+  "onboarding_matchDescription": "Выбирайте только профили, подходящие под Ваши требовния",
+  "onboarding_playTitle": "Играйте с новыми союзниками",
+  "onboarding_playDescription": "Наслаждайтесь игрой без троллей и сконцентрируйтесь на своей эффективности",
+  "onboarding_winTitle": "Побеждайте в любой ситуации",
+  "onboarding_winDescription": "Не выиграли в этой серии на повышение? Вы хотя бы не упали духом из-за умышленно раскармливающего врагов мидера",
+
+  "passwordSettings_title": "Пароль",
+  "passwordSettings_currentPassword": "Текущий пароль",
+  "passwordSettings_newPassword": "Новый пароль",
+  "passwordSettings_newPasswordConfirmation": "Новый пароль ещё раз",
+
+  "queues_RANKED_SOLO_5x5": "Одиночная 5x5",
+  "queues_RANKED_FLEX_SR": "Гибкая 5x5",
+  "queues_RANKED_TEAM_3x3": "Команды 3x3",
+
+  "rolesSettings_title": "Роли",
+  "rolesSettings_subtitle": "Выберите свои любимые роли",
+
+  "settings_title": "Настройки",
+  "settings_account": "Аккаунт",
+  "settings_changePassword": "Сменить пароль",
+  "settings_preferences": "Предпочтения",
+  "settings_communication": "Настройки связи",
+  "settings_suggestions": "Настройки предложений",
+  "settings_ads": "Настройки рекламы",
+  "settings_summoner": "Призыватель",
+  "settings_champions": "Любимые чемпионы",
+  "settings_locales": "Языки",
+  "settings_roles": "Любимые роли",
+  "settings_goals": "Цели",
+  "settings_other": "Другое",
+  "settings_credits": "О нас",
+  "settings_logout": "Выйти",
+  "settings_profile": "Мой профиль",
+
+  "sign_email": "Электронная почта",
+  "sign_password": "Пароль",
+  "sign_confirmation": "Подтверждение",
+  "sign_signIn": "Вход",
+  "sign_signUp": "Регистрация",
+  "sign_signInButton": "Вход",
+  "sign_signUpButton": "Регистрация",
+
+  "suggestionsSettings_title": "Предложения",
+  "suggestionsSettings_subtitle": "Выберите очередь, котрую вы хотите видеть первой",
+
+  "summonerCard_rank": "Ранг",
+  "summonerCard_winrate": "Рейтинг побед",
+
+  "summonerInfos_summonerName": "Имя призывателя",
+  "summonerInfos_region": "Регион",
+
+  "userDetails_ranksTitle": "Ранги",
+  "userDetails_ranksWinrate": "Рейтинг побед",
+  "userDetails_favoriteRolesTitle": "Любимые роли",
+  "userDetails_favoriteChampionsTitle": "Любимые чемпионы",
+  "userDetails_localesTitle": "Языки",
+  "userDetails_communicationTitle": "Связь",
+  "userDetails_update": "Обновить данные о моих ранговых играх",
+  "userDetails_profileUpdated": "Ваш профиль был обновлен"
+}
