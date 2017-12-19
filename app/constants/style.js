@@ -4,11 +4,25 @@ export const colors = {
   black: '#000000',
   blue: '#007FFF',
   grey: '#A1A1A1',
+  green: '#00F7C3',
   lightGrey: '#f5f5f5',
   orange: '#FFA500',
   placeholderGrey: '#CFCFCF',
   red: '#FF0064',
   white: '#ffffff',
+}
+
+export const RGBcolors = {
+  red: {
+    red: 100,
+    green: 0,
+    blue: 39,
+  },
+  green: {
+    red: 0,
+    green: 97,
+    blue: 76,
+  },
 }
 
 export const shadows = {
