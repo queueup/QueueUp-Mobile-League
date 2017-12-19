@@ -93,11 +93,11 @@ class SummonerCard extends React.Component {
     })
 
     const interpolatedColor = this.offset.x.interpolate({
-      inputRange: [-100, 0, 100],
+      inputRange: [-25, 0, 25],
       outputRange: [
-        buildRGBA(RGBcolors.red, 0.7),
+        buildRGBA(RGBcolors.red, 0.3),
         'rgba(0, 0, 0, 0.2)',
-        buildRGBA(RGBcolors.green, 0.7),
+        buildRGBA(RGBcolors.green, 0.3),
       ],
     })
 
