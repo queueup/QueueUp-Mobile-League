@@ -6,7 +6,6 @@ import {
   View,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import Toast from 'react-native-easy-toast'
 import PropTypes from 'prop-types'
 import styles from './styles'
 import BackgroundView from '../background-view'
