@@ -85,7 +85,7 @@ class SummonerCard extends React.Component {
 
   render() {
     const { summoner, queueType, communicationData } = this.props
-    const { champions, locales, roles, rankedData } = summoner
+    const { champions, locales, roles, rankedData, description } = summoner
 
     const interpolated0ffset = this.offset.x.interpolate({
       inputRange: [0, 100],
@@ -147,6 +147,13 @@ class SummonerCard extends React.Component {
               style={style.roleImage}
             />)}
           </View>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={style.description}
+          >
+            {description}
+          </Text>
           <View style={style.championsContainer}>
             {champions.map(c =>
               <Image

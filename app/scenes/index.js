@@ -34,6 +34,7 @@ import UserDetails from './user-details'
 import AdsSettings from './ads-settings'
 import ChampionsSettings from './champions-settings'
 import CommunicationSettings from './communication-settings'
+import DescriptionSettings from './description-settings'
 import GoalsSettings from './goals-settings'
 import LocalesSettings from './locales-settings'
 import PasswordSettings from './password-settings'
@@ -77,6 +78,7 @@ class Scenes extends React.Component {
       'settings',
       'userDetails',
       'championsSettings',
+      'descriptionSettings',
       'goalsSettings',
       'localesSettings',
       'passwordSettings',
@@ -113,6 +115,7 @@ class Scenes extends React.Component {
           <Scene key="settings" component={Settings} />
           <Scene key="adsSettings" component={AdsSettings} />
           <Scene key="championsSettings" component={ChampionsSettings} />
+          <Scene key="descriptionSettings" component={DescriptionSettings} />
           <Scene key="communicationSettings" component={CommunicationSettings} />
           <Scene key="goalsSettings" component={GoalsSettings} />
           <Scene key="localesSettings" component={LocalesSettings} />

@@ -22,6 +22,9 @@ export default {
     height: 30,
     width: 30,
   },
+  description: {
+    marginVertical: 20,
+  },
   scrollContainer: {
     paddingVertical: Platform.select({
       ios: 40,

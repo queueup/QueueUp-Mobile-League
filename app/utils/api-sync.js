@@ -33,6 +33,7 @@ export class ApiSync {
           this.dispatch(updateField('selectedLocales', leagueProfile.locales))
           this.dispatch(updateField('selectedRoles', leagueProfile.roles))
           this.dispatch(updateField('profileId', leagueProfile.id))
+          this.dispatch(updateField('description', leagueProfile.description))
         } else {
           AsyncStorage.removeItem('@QueueUp:AUTH_UID')
           AsyncStorage.removeItem('@QueueUp:AUTH_TOKEN')

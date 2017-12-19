@@ -8,6 +8,11 @@ export const style = {
     justifyContent: 'center',
     marginTop: -100,
   },
+  description: {
+    color: colors.grey,
+    marginHorizontal: 10,
+    textAlign: 'center',
+  },
   rankImage: {
     height: 120,
     width: 120,

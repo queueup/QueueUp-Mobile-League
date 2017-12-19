@@ -18,42 +18,17 @@ import { apiWrapper } from '../../utils'
 
 const menu = displayUser => [
   {
-    title: I18n.t('settings_account'),
-    data: [
-      {
-        icon: 'padlock',
-        label: I18n.t('settings_changePassword'),
-        onPress: () => Actions.passwordSettings(),
-      },
-    ],
-  },
-  {
-    title: I18n.t('settings_preferences'),
-    data: [
-      {
-        icon: 'microphone',
-        label: I18n.t('settings_communication'),
-        onPress: () => Actions.communicationSettings(),
-      },
-      {
-        icon: 'settings',
-        label: I18n.t('settings_suggestions'),
-        onPress: () => Actions.suggestionsSettings(),
-      },
-      {
-        icon: 'barChart',
-        label: I18n.t('settings_ads'),
-        onPress: () => Actions.adsSettings(),
-      },
-    ],
-  },
-  {
     title: I18n.t('settings_summoner'),
     data: [
       {
         icon: 'champion',
         label: I18n.t('settings_champions'),
         onPress: () => Actions.championsSettings(),
+      },
+      {
+        icon: 'edit',
+        label: I18n.t('settings_description'),
+        onPress: () => Actions.descriptionSettings(),
       },
       {
         icon: 'role',
@@ -83,12 +58,37 @@ const menu = displayUser => [
     ],
   },
   {
+    title: I18n.t('settings_preferences'),
+    data: [
+      {
+        icon: 'microphone',
+        label: I18n.t('settings_communication'),
+        onPress: () => Actions.communicationSettings(),
+      },
+      {
+        icon: 'settings',
+        label: I18n.t('settings_suggestions'),
+        onPress: () => Actions.suggestionsSettings(),
+      },
+      {
+        icon: 'padlock',
+        label: I18n.t('settings_changePassword'),
+        onPress: () => Actions.passwordSettings(),
+      },
+    ],
+  },
+  {
     title: I18n.t('settings_other'),
     data: [
       {
         icon: 'star',
         label: I18n.t('settings_credits'),
         onPress: () => Actions.credits(),
+      },
+      {
+        icon: 'barChart',
+        label: I18n.t('settings_ads'),
+        onPress: () => Actions.adsSettings(),
       },
       {
         icon: 'logout',
