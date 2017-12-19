@@ -42,6 +42,9 @@
   "chat_button": "Senden",
 
   "communicationSettings_title": "Mitteilungen",
+  
+  "descriptionSettings_title": "Beschreibung",
+  "descriptionSettings_descriptionPlaceholder": "Schreib was über dich...",
 
   "goals_funDescription": "Spaß haben und Freunde finden",
   "goals_winDescription": "Alles geben und Aufsteigen",
@@ -93,6 +96,7 @@
   "settings_account": "Benutzer",
   "settings_ads": "Werbungs-Einstellungen",
   "settings_changePassword": "Passwort ändern",
+  "settings_description": "Beschreibung",
   "settings_preferences": "Einstellungen",
   "settings_communication": "Kommunikation",
   "settings_suggestions": "Vorschlags-Einstellungen",
@@ -122,6 +126,7 @@
   "summonerInfos_summonerName": "Beschwörername",
   "summonerInfos_region": "Region",
 
+  "userDetails_descriptionTitle": "Beschreibung",
   "userDetails_ranksTitle": "Rang",
   "userDetails_ranksWinrate": "Siegesrate",
   "userDetails_favoriteRolesTitle": "Lieblingsrollen",
