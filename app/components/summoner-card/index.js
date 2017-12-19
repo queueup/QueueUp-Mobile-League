@@ -3,6 +3,7 @@ import {
   Animated,
   Image,
   PanResponder,
+  Platform,
   Text,
   View,
 } from 'react-native'
@@ -16,7 +17,9 @@ import {
   teamspeakGrey,
 } from '../../images'
 import constantChampions from '../../constants/champions'
+import { RGBcolors } from '../../constants/style'
 import { getDivisionImage, getWinrate } from '../../helpers/leagues'
+import { buildRGBA } from '../../helpers/colors'
 
 import I18n from '../../i18n'
 
@@ -89,6 +92,15 @@ class SummonerCard extends React.Component {
       outputRange: ['0deg', '2deg'],
     })
 
+    const interpolatedColor = this.offset.x.interpolate({
+      inputRange: [-25, 0, 25],
+      outputRange: [
+        buildRGBA(RGBcolors.red, 0.3),
+        'rgba(0, 0, 0, 0.2)',
+        buildRGBA(RGBcolors.green, 0.3),
+      ],
+    })
+
     const rank = rankedData.find(d => d.queueType === queueType)
 
     return (
@@ -111,7 +123,22 @@ class SummonerCard extends React.Component {
           source={getDivisionImage(rank)}
           style={style.rankImage}
         />
-        <View style={style.card} {...this._panResponder.panHandlers}>
+        <Animated.View
+          {...this._panResponder.panHandlers}
+          style={[
+            style.card,
+            {
+              ...Platform.select({
+                ios: {
+                  shadowColor: interpolatedColor,
+                },
+                android: {
+                  borderColor: interpolatedColor,
+                },
+              }),
+            },
+          ]}
+        >
           <View style={style.rolesContainer}>
             {roles.map(r => <Image
               key={r}
@@ -160,7 +187,7 @@ class SummonerCard extends React.Component {
               <Text style={style.recapValue}>{getWinrate(rank)}</Text>
             </View>
           </View>
-        </View>
+        </Animated.View>
       </Animated.View>
     )
   }
