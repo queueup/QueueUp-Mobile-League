@@ -43,6 +43,9 @@
 
   "communicationSettings_title": "Связь",
 
+  "descriptionSettings_title": "Описание",
+  "descriptionSettings_descriptionPlaceholder": "Напишите о себе...",
+
   "goals_funDescription": "Повеселиться и завести новых друзей",
   "goals_winDescription": "Усовершенствовать навыки и поднять ранг",
   "goalSettings_title": "Цели",
@@ -91,6 +94,7 @@
   "settings_title": "Настройки",
   "settings_account": "Аккаунт",
   "settings_changePassword": "Сменить пароль",
+  "settings_description": "Описание",
   "settings_preferences": "Предпочтения",
   "settings_communication": "Настройки связи",
   "settings_suggestions": "Настройки предложений",
@@ -122,6 +126,7 @@
   "summonerInfos_summonerName": "Имя призывателя",
   "summonerInfos_region": "Регион",
 
+  "userDetails_descriptionTitle": "Описание",
   "userDetails_ranksTitle": "Ранги",
   "userDetails_ranksWinrate": "Рейтинг побед",
   "userDetails_favoriteRolesTitle": "Любимые роли",
