@@ -4,6 +4,7 @@ import {
 
 const initialState = {
   ads: true,
+  description: '',
   editing: false,
   profileId: '',
   selectedChampions: [],

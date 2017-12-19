@@ -13,10 +13,10 @@ import { getDivisionImage, getDivisionText, getWinrate } from '../../../helpers/
 import queues from '../../../constants/queues'
 import I18n from '../../../i18n'
 
-export const Rank = ({ queueType, rankedData, delay }) => {
+export const Rank = ({ queueType, rankedData }) => {
   const division = rankedData.find(d => d.queueType === queueType)
   return (
-    <AnimatedView style={styles.rankContainer} animation="fadeInRight" delay={delay} duration={300} >
+    <AnimatedView style={styles.rankContainer} animation="fadeInRight" duration={300} >
       <Text style={styles.rankQueue}>{queues.find(q => q.id === queueType).label}</Text>
       <View style={styles.rankDataContainer}>
         <Image source={getDivisionImage(division)} style={styles.rankImage} />
