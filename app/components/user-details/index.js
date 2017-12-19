@@ -44,37 +44,48 @@ class UserDetails extends React.Component {
         </TouchableOpacity>
         <ScrollView>
           <View style={styles.scrollContainer}>
-            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" delay={0} duration={300}>
+            {leagueProfile.description.length > 0
+              && <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
+                {I18n.t('userDetails_descriptionTitle')}
+              </AnimatedText>}
+            {leagueProfile.description.length > 0
+              && <AnimatedText style={styles.description} animation="fadeInRight" duration={300}>
+                {leagueProfile.description}
+              </AnimatedText>}
+            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
               {I18n.t('userDetails_ranksTitle')}
             </AnimatedText>
             <Rank
               rankedData={leagueProfile.rankedData}
               queueType="RANKED_SOLO_5x5"
-              delay={50}
             />
             <Rank
               rankedData={leagueProfile.rankedData}
               queueType="RANKED_FLEX_SR"
-              delay={100}
             />
             <Rank
               rankedData={leagueProfile.rankedData}
               queueType="RANKED_TEAM_3x3"
-              delay={150}
             />
-            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" delay={400} duration={300}>
-              {I18n.t('userDetails_favoriteRolesTitle')}
-            </AnimatedText>
-            <Roles roles={leagueProfile.roles} />
-            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" delay={600} duration={300}>
-              {I18n.t('userDetails_favoriteChampionsTitle')}
-            </AnimatedText>
-            <Champions champions={leagueProfile.champions} />
-            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" delay={800} duration={300}>
-              {I18n.t('userDetails_localesTitle')}
-            </AnimatedText>
-            <Locales locales={leagueProfile.locales} />
-            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" delay={1000} duration={300}>
+            {leagueProfile.roles.length > 0
+              && <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
+                {I18n.t('userDetails_favoriteRolesTitle')}
+              </AnimatedText>}
+            {leagueProfile.roles.length > 0
+              && <Roles roles={leagueProfile.roles} />}
+            {leagueProfile.champions.length > 0
+              && <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
+                {I18n.t('userDetails_favoriteChampionsTitle')}
+              </AnimatedText>}
+            {leagueProfile.champions.length > 0
+              && <Champions champions={leagueProfile.champions} />}
+            {leagueProfile.locales.length > 0
+              && <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
+                {I18n.t('userDetails_localesTitle')}
+              </AnimatedText>}
+            {leagueProfile.locales.length > 0
+              && <Locales locales={leagueProfile.locales} />}
+            <AnimatedText style={styles.sectionTitle} animation="fadeInRight" duration={300}>
               {I18n.t('userDetails_communicationTitle')}
             </AnimatedText>
             <Communication data={communicationData} />

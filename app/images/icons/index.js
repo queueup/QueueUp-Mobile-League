@@ -3,6 +3,7 @@ import cancel from './cancel.png'
 import champion from './champion.png'
 import circularTarget from './circular-target.png'
 import dislike from './dislike.png'
+import edit from './edit.png'
 import like from './like.png'
 import logout from './logout.png'
 import microphone from './microphone.png'
@@ -23,6 +24,7 @@ export default {
   champion,
   circularTarget,
   dislike,
+  edit,
   like,
   logout,
   microphone,
