@@ -5,3 +5,4 @@ install:
 - yarn
 script:
 - yarn lint
+- yarn check-translations
