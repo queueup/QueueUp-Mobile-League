@@ -69,23 +69,25 @@ class Home extends React.Component {
       updateSetting,
     } = this.props
 
-    const request = answer
-      ? apiWrapper.acceptSuggestion
-      : apiWrapper.declineSuggestion
-    request(suggestions[0].leagueProfile.id)
-      .then(r => {
-        if (r.data.matches) { displayMatchModal() }
-      })
-      .catch(() => null)
-      .then(() => {
-        removeSuggestion()
-        if (typeof cb === 'function') { callback() }
-        const newAnswersCount = answersCount + 1
-        updateSetting('answersCount', newAnswersCount)
-        if (newAnswersCount >= 20) {
-          updateSetting('nextSuggestionsDate', moment().add(1, 'hours'))
-        }
-      })
+    if (suggestions.length > 0) {
+      const request = answer
+        ? apiWrapper.acceptSuggestion
+        : apiWrapper.declineSuggestion
+      request(suggestions[0].leagueProfile.id)
+        .then(r => {
+          if (r.data.matches) { displayMatchModal() }
+        })
+        .catch(() => null)
+        .then(() => {
+          removeSuggestion()
+          if (typeof cb === 'function') { callback() }
+          const newAnswersCount = answersCount + 1
+          updateSetting('answersCount', newAnswersCount)
+          if (newAnswersCount >= 20) {
+            updateSetting('nextSuggestionsDate', moment().add(1, 'hours'))
+          }
+        })
+    }
   }
 
   render() {
