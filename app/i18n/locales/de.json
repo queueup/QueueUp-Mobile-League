@@ -54,6 +54,10 @@
 
   "home_emptyTitle": "keine weiteren Vorschläge",
   "home_emptySubtitle": "Komm später zurück!",
+  
+  "home_emptyAdTitle": "Vorerst keine weiteren Vorschläge",
+  "home_emptyAdSubtitle": "Komm später noch einmal oder sieh dir einen Werbespot an um mehr Vorschläge anzuzeigen",
+  "home_emptyAdButton": "Werbung ansehen",
 
   "loadingPage_title": "Account wird synchronisiert",
   "loadingPage_description": "Dies kann ein paar Sekunden dauern",

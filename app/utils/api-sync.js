@@ -11,9 +11,6 @@ import {
 import {
   updateField,
 } from '../actions/settings'
-import {
-  addSuggestions,
-} from '../actions/suggestions'
 
 import { apiWrapper } from './api-wrapper'
 
@@ -40,9 +37,6 @@ export class ApiSync {
           Actions.replace('sign')
         }
       })
-    apiWrapper
-      .getSuggestions()
-      .then(r => this.dispatch(addSuggestions(r.data)))
     apiWrapper
       .getMatches()
       .then(r => this.dispatch(setMatches(r.data)))

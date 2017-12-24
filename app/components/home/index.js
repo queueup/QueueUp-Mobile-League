@@ -3,6 +3,9 @@ import {
   View,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import { AdMobRewarded } from 'react-native-admob'
+import Config from 'react-native-config'
+import moment from 'moment'
 import PropTypes from 'prop-types'
 
 import AnswerButtons from '../answer-buttons'
@@ -17,77 +20,150 @@ import { sleepingPoro } from '../../images'
 
 import { apiWrapper } from '../../utils'
 
-const Home = ({ onAccept, onDeny, suggestions, favoriteQueue, displayUser, displayMatchModal }) => {
-  const accept = cb => suggestions.length > 0
-    && apiWrapper
-      .acceptSuggestion(suggestions[0].leagueProfile.id)
-      .then(r => {
-        onAccept()
-        if (r.data.matches) { displayMatchModal() }
-        if (typeof cb === 'function') { cb() }
-      })
-      .catch(() => {
-        onAccept()
-        if (typeof cb === 'function') { cb() }
-      })
-  const deny = cb => suggestions.length > 0
-    && apiWrapper
-      .declineSuggestion(suggestions[0].leagueProfile.id)
-      .then(() => {
-        onDeny()
-        if (typeof cb === 'function') { cb() }
-      })
-      .catch(() => {
-        onDeny()
-        if (typeof cb === 'function') { cb() }
-      })
+class Home extends React.Component {
+  constructor(props) {
+    super(props)
 
-  return (
-    <BackgroundView>
-      <View style={{flex: 1}}>
-        <NavigationBar
-          leftIcon="settings"
-          leftAction={() => Actions.settings()}
-          rightIcon="pushPin"
-          rightAction={() => Actions.matches()}
-          hideCenter
-        />
-        {suggestions.length > 0
-          ? <SummonerCard
-            summoner={suggestions[0].leagueProfile}
-            communicationData={suggestions[0].communicationData}
-            queueType={favoriteQueue.id}
-            onAccept={accept}
-            onDeny={deny}
-            onPress={() => displayUser(suggestions[0])}
+    this.state = {
+      noMore: false,
+    }
+  }
+  componentDidMount() {
+    const {
+      updateSetting,
+    } = this.props
+
+    AdMobRewarded.setAdUnitID(Config.ADMOB_REWARDED_UNIT_ID)
+    AdMobRewarded.requestAd()
+    AdMobRewarded.addEventListener('rewarded', () => {
+      updateSetting('answersCount', 0)
+      updateSetting('nextSuggestionsDate', moment())
+      this.loadSuggestions()
+    })
+    this.loadSuggestions()
+  }
+
+  loadSuggestions() {
+    const {
+      addSuggestions,
+      nextSuggestionsDate,
+    } = this.props
+    if (nextSuggestionsDate === null || moment().isSameOrAfter(nextSuggestionsDate)) {
+      apiWrapper
+        .getSuggestions()
+        .then(({ data }) => {
+          if (data.length === 0) {
+            this.setState({ noMore: true })
+          }
+          addSuggestions(data)
+        })
+    }
+  }
+
+  handleAnswer(answer, callback) {
+    const {
+      answersCount,
+      displayMatchModal,
+      removeSuggestion,
+      suggestions,
+      updateSetting,
+    } = this.props
+
+    const request = answer
+      ? apiWrapper.acceptSuggestion
+      : apiWrapper.declineSuggestion
+    request(suggestions[0].leagueProfile.id)
+      .then(r => {
+        if (r.data.matches) { displayMatchModal() }
+      })
+      .catch(() => null)
+      .then(() => {
+        removeSuggestion()
+        if (typeof cb === 'function') { callback() }
+        const newAnswersCount = answersCount + 1
+        updateSetting('answersCount', newAnswersCount)
+        if (newAnswersCount >= 20) {
+          updateSetting('nextSuggestionsDate', moment().add(1, 'hours'))
+        }
+      })
+  }
+
+  render() {
+    const {
+      answersCount,
+      displayUser,
+      favoriteQueue,
+      suggestions,
+    } = this.props
+    const { noMore } = this.state
+
+    return (
+      <BackgroundView>
+        <View style={{flex: 1}}>
+          <NavigationBar
+            leftIcon="settings"
+            leftAction={() => Actions.settings()}
+            rightIcon="pushPin"
+            rightAction={() => Actions.matches()}
+            hideCenter
           />
-          : <EmptyState
-            image={sleepingPoro}
-            title={I18n.t('home_emptyTitle')}
-            subtitle={I18n.t('home_emptySubtitle')}
-          />}
-        <AnswerButtons onAccept={accept} onDeny={deny} />
-      </View>
-    </BackgroundView>
-  )
+          {suggestions.length > 0 && answersCount < 20
+            ? <SummonerCard
+              summoner={suggestions[0].leagueProfile}
+              communicationData={suggestions[0].communicationData}
+              queueType={favoriteQueue.id}
+              onAccept={callback => this.handleAnswer(true, callback)}
+              onDeny={callback => this.handleAnswer(false, callback)}
+              onPress={() => displayUser(suggestions[0])}
+            />
+            : noMore
+              ? <EmptyState
+                image={sleepingPoro}
+                title={I18n.t('home_emptyTitle')}
+                subtitle={I18n.t('home_emptySubtitle')}
+              />
+              : <EmptyState
+                action={() => AdMobRewarded.showAd()}
+                actionText={I18n.t('home_emptyAdButton')}
+                image={sleepingPoro}
+                title={I18n.t('home_emptyAdTitle')}
+                subtitle={I18n.t('home_emptyAdSubtitle')}
+              />}
+          <AnswerButtons
+            onAccept={callback => this.handleAnswer(true, callback)}
+            onDeny={callback => this.handleAnswer(false, callback)}
+          />
+        </View>
+      </BackgroundView>
+    )
+  }
 }
 
 Home.propTypes = {
+  addSuggestions: PropTypes.func,
+  answersCount: PropTypes.number,
   displayMatchModal: PropTypes.func,
   displayUser: PropTypes.func,
   favoriteQueue: PropTypes.object,
-  onAccept: PropTypes.func,
-  onDeny: PropTypes.func,
+  nextSuggestionsDate: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  removeSuggestion: PropTypes.func,
   suggestions: PropTypes.array,
+  updateSetting: PropTypes.func,
 }
 
 Home.defaultProps = {
+  addSuggestions: () => null,
+  answersCount: 0,
   displayMatchModal: () => null,
   displayUser: () => null,
   favoriteQueue: {},
-  onAccept: () => null,
-  onDeny: () => null,
+  nextSuggestionsDate: null,
+  removeSuggestion: () => null,
   suggestions: [],
+  updateSetting: () => null,
 }
 
 export default Home

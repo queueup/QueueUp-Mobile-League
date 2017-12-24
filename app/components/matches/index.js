@@ -6,10 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import Config from 'react-native-config'
 import { Actions } from 'react-native-router-flux'
 import PropTypes from 'prop-types'
-import { AdMobBanner } from 'react-native-admob'
 import styles from './styles'
 import I18n from '../../i18n'
 import BackgroundView from '../background-view'
@@ -90,7 +88,7 @@ class Chat extends React.Component {
   }
 
   render() {
-    const { ads, matches, setMatch, favoriteQueue, setMessages } = this.props
+    const {  matches, setMatch, favoriteQueue, setMessages } = this.props
     return (
       <BackgroundView>
         <View style={{flex: 1}}>
@@ -113,11 +111,6 @@ class Chat extends React.Component {
               subtitle={I18n.t('matches_emptySubtitle')}
             />
           }
-          {ads
-            && <AdMobBanner
-              adSize="smartBannerPortrait"
-              adUnitID={Config.ADMOB_CHAT_UNIT_ID}
-            />}
         </View>
       </BackgroundView>
     )
@@ -125,7 +118,6 @@ class Chat extends React.Component {
 }
 
 Chat.propTypes = {
-  ads: PropTypes.bool,
   favoriteQueue: PropTypes.object,
   matches: PropTypes.array,
   setMatch: PropTypes.func,
@@ -134,7 +126,6 @@ Chat.propTypes = {
 }
 
 Chat.defaultProps = {
-  ads: true,
   favoriteQueue: '',
   matches: [],
   setMatch: () => null,

@@ -11,6 +11,7 @@ import {
   Scene,
 } from 'react-native-router-flux'
 import OneSignal from 'react-native-onesignal'
+import moment from 'moment'
 
 import { updateField } from '../actions/settings'
 
@@ -44,7 +45,7 @@ import Settings from './settings'
 
 class Scenes extends React.Component {
   componentWillMount() {
-    this.setFavoriteQueue()
+    this.initSettings()
     this.getAccessToken()
     OneSignal.addEventListener('ids', os => global.oneSignalData = os)
     OneSignal.inFocusDisplaying(0)
@@ -66,11 +67,22 @@ class Scenes extends React.Component {
       .catch(() => Actions.replace('onboarding'))
   }
 
-  async setFavoriteQueue() {
+  async initSettings() {
+    const { updateSetting } = this.props
     const queueId = await AsyncStorage.getItem('@QueueUp:favoriteQueue')
-    this.props.setFavoriteQueue(queues.find(q => queueId === q.id) || queues[0])
+    updateSetting('favoriteQueue', queues.find(q => queueId === q.id) || queues[0])
     const ads = await AsyncStorage.getItem('@QueueUp:ads')
-    this.props.setAds(ads ? JSON.parse(ads) : true)
+    if (answersCount !== null) {
+      updateSetting('ads', JSON.parse(ads))
+    }
+    const answersCount = await AsyncStorage.getItem('@QueueUp:answersCount')
+    if (answersCount !== null) {
+      updateSetting('answersCount', JSON.parse(answersCount))
+    }
+    const nextSuggestionsDate = await AsyncStorage.getItem('@QueueUp:nextSuggestionsDate')
+    if(nextSuggestionsDate !== null) {
+      updateSetting('nextSuggestionsDate', moment(JSON.parse(nextSuggestionsDate)))
+    }
   }
 
   handleBack() {
@@ -130,14 +142,12 @@ class Scenes extends React.Component {
 
 Scenes.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  setAds: PropTypes.func.isRequired,
-  setFavoriteQueue: PropTypes.func.isRequired,
+  updateSetting: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
-  setAds: q => dispatch(updateField('ads', q)),
-  setFavoriteQueue: q => dispatch(updateField('favoriteQueue', q)),
+  updateSetting: (field, value) => dispatch(updateField(field, value)),
 })
 
 export default connect(null, mapDispatchToProps)(Scenes)
