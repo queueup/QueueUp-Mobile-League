@@ -268,13 +268,6 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
-		B40A63C81FB1150B004CCEAB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0C3E552B03844AA08299457E /* RNAdMobManager.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A96DA7741C146D7200FC639B;
-			remoteInfo = RNAdMobManager;
-		};
 		B40954F41FDD4DBC00E18F98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B33675672C3459E9BA9FF7E /* RNI18n.xcodeproj */;
@@ -295,6 +288,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNSentry;
+		};
+		B40A63C81FB1150B004CCEAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C3E552B03844AA08299457E /* RNAdMobManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A96DA7741C146D7200FC639B;
+			remoteInfo = RNAdMobManager;
 		};
 		B44DCF101FAB8FF900E04B42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -728,12 +728,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B40A63C51FB1150A004CCEAB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B40A63C91FB1150B004CCEAB /* libRNAdMobManager.a */,
-			);
-		};
 		B40954EE1FDD4DBC00E18F98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +744,13 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		B40A63C51FB1150A004CCEAB = {
+			isa = PBXGroup;
+			children = (
+				B40A63C91FB1150B004CCEAB /* libRNAdMobManager.a */,
+			);
+			sourceTree = "<unknown>";
 		};
 		B44DCF0D1FAB8FF900E04B42 /* Products */ = {
 			isa = PBXGroup;
@@ -1007,12 +1008,8 @@
 					ProjectRef = 08DCDC85D47047FB959C2F83 /* RealmReact.xcodeproj */;
 				},
 				{
-					ProductGroup = B40A63C51FB1150A004CCEAB /* Products */;
+					ProductGroup = B40A63C51FB1150A004CCEAB;
 					ProjectRef = 0C3E552B03844AA08299457E /* RNAdMobManager.xcodeproj */;
-				},
-				{
-					ProductGroup = B4B456C21FA7D4D800A8DFAB /* Products */;
-					ProjectRef = 65332A756CF6493094F479DA /* RNSentry.xcodeproj */;
 				},
 				{
 					ProductGroup = B40954EE1FDD4DBC00E18F98 /* Products */;
@@ -1216,13 +1213,6 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B40A63C91FB1150B004CCEAB /* libRNAdMobManager.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNAdMobManager.a;
-			remoteRef = B40A63C81FB1150B004CCEAB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		B40954F51FDD4DBC00E18F98 /* libRNI18n.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1242,6 +1232,13 @@
 			fileType = archive.ar;
 			path = libRNSentry.a;
 			remoteRef = B40954FB1FDD4DBC00E18F98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B40A63C91FB1150B004CCEAB /* libRNAdMobManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNAdMobManager.a;
+			remoteRef = B40A63C81FB1150B004CCEAB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B44DCF111FAB8FF900E04B42 /* libRealmReact.a */ = {
@@ -1522,7 +1519,7 @@
 				CODE_SIGN_ENTITLEMENTS = QueueUp/QueueUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 4XJW77H24F;
 				ENABLE_BITCODE = NO;
@@ -1553,6 +1550,7 @@
 				PRODUCT_NAME = QueueUp;
 				PROVISIONING_PROFILE = "8378b20d-7d5c-42ad-9393-f3c1a94b6adc";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.queueup.leagueoflegends";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1564,7 +1562,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = QueueUp/QueueUp.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 39;
 				DEVELOPMENT_TEAM = 4XJW77H24F;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1594,6 +1592,7 @@
 				PRODUCT_NAME = QueueUp;
 				PROVISIONING_PROFILE = "b4bb6fcd-b5c2-43ac-bc7c-78efaa7cf75e";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.queueup.leagueoflegends";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
