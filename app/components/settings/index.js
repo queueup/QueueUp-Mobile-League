@@ -85,11 +85,11 @@ const menu = displayUser => [
         label: I18n.t('settings_credits'),
         onPress: () => Actions.credits(),
       },
-      {
-        icon: 'barChart',
-        label: I18n.t('settings_ads'),
-        onPress: () => Actions.adsSettings(),
-      },
+      // {
+      //   icon: 'barChart',
+      //   label: I18n.t('settings_ads'),
+      //   onPress: () => Actions.adsSettings(),
+      // },
       {
         icon: 'logout',
         label: I18n.t('settings_logout'),
