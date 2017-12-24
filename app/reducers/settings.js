@@ -4,14 +4,16 @@ import {
 
 const initialState = {
   ads: true,
+  answersCount: 0,
   description: '',
   editing: false,
+  favoriteQueue: {},
+  nextSuggestionsDate: null,
   profileId: '',
   selectedChampions: [],
   selectedGoals: [],
   selectedLocales: [],
   selectedRoles: [],
-  favoriteQueue: {},
 }
 
 export default (state = initialState, action) => {

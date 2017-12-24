@@ -53,6 +53,9 @@
 
   "home_emptyTitle": "Предложений больше нет",
   "home_emptySubtitle": "Пожалуйста, зайдите позже!",
+  "home_emptyAdTitle": "Новых предложений пока нет",
+  "home_emptyAdSubtitle": "Вы можете вернуться через час или получить больше предложений посмотрев рекламу",
+  "home_emptyAdButton": "Посмотреть рекламу",
 
   "loadingPage_title": "Синхронизация аккаунта!",
   "loadingPage_description": "Это займет несколько секунд",

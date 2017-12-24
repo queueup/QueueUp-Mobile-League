@@ -1,24 +1,28 @@
 
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
-import { removeSuggestion } from '../../actions/suggestions'
+import { addSuggestions, removeSuggestion } from '../../actions/suggestions'
 import { displayUser } from '../../actions/users'
 import { displayMatchModal } from '../../actions/ux'
+import { updateField } from '../../actions/settings'
 import Home from '../../components/home'
 
-const mapStateToProps = ({ suggestions, settings }) => ({
-  suggestions: suggestions,
-  favoriteQueue: settings.favoriteQueue,
+const mapStateToProps = ({ suggestions, settings: { favoriteQueue, answersCount, nextSuggestionsDate } }) => ({
+  answersCount,
+  favoriteQueue,
+  nextSuggestionsDate,
+  suggestions,
 })
 
 const mapDispatchToProps = dispatch => ({
+  addSuggestions: s => dispatch(addSuggestions(s)),
   displayUser: u => {
     dispatch(displayUser(u))
     Actions.userDetails()
   },
-  onAccept: () => dispatch(removeSuggestion()),
-  onDeny: () => dispatch(removeSuggestion()),
+  removeSuggestion: () => dispatch(removeSuggestion()),
   displayMatchModal: () => dispatch(displayMatchModal()),
+  updateSetting: (field, value) => dispatch(updateField(field, value)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
