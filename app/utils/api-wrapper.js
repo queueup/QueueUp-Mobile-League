@@ -25,14 +25,13 @@ export const apiWrapper = {
   updatePassword: params => instance.patch('user/update_password', params),
   validateToken: () => instance.get('user/validate_token'),
 
+  deleteNotifications: () => instance.delete('notifications'),
+
   createDevice: () => instance.post('devices', {
     pushToken: global.oneSignalData.pushToken,
     userToken: global.oneSignalData.userId,
   }),
-  deleteDevice: () => instance.delete('devices', {
-    pushToken: global.oneSignalData.pushToken,
-    userToken: global.oneSignalData.userId,
-  }),
+  deleteDevice: () => instance.delete(`devices?push_token=${global.oneSignalData.pushToken}&user_token=${global.oneSignalData.userId}`),
 
   getCommunication: () => instance.get('communication_data'),
   updateCommunication: (type, value) => instance.patch(`communication_data/${type}`, { value }),

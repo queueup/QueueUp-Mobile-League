@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
+  AppState,
   AsyncStorage,
   Platform,
 } from 'react-native'
@@ -43,12 +44,24 @@ import RolesSettings from './roles-settings'
 import SuggestionsSettings from './suggestions-settings'
 import Settings from './settings'
 
+const handleAppStateChange = status => {
+  if (status === 'active') {
+    apiWrapper.deleteNotifications()
+    OneSignal.clearOneSignalNotifications()
+  }
+}
+
 class Scenes extends React.Component {
   componentWillMount() {
     this.initSettings()
     this.getAccessToken()
     OneSignal.addEventListener('ids', os => global.oneSignalData = os)
     OneSignal.inFocusDisplaying(0)
+    AppState.addEventListener('change', handleAppStateChange)
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', handleAppStateChange)
   }
 
   async getAccessToken() {

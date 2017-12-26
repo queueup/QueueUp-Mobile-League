@@ -43,5 +43,7 @@ export class ApiSync {
     apiWrapper
       .getCommunication()
       .then(r => r.data.forEach(c => this.dispatch(updateField(c.type, c.value))))
+    apiWrapper
+      .deleteNotifications()
   }
 }
