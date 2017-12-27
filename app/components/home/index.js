@@ -28,13 +28,14 @@ class Home extends React.Component {
       noMore: false,
     }
   }
+
   componentDidMount() {
     const {
       updateSetting,
     } = this.props
 
     AdMobRewarded.setAdUnitID(Config.ADMOB_REWARDED_UNIT_ID)
-    AdMobRewarded.requestAd()
+    AdMobRewarded.requestAd().catch(() => null)
     AdMobRewarded.addEventListener('rewarded', () => {
       updateSetting('answersCount', 0)
       updateSetting('nextSuggestionsDate', moment())
