@@ -3,12 +3,20 @@ import { connect } from 'react-redux'
 import { updateField } from '../../actions/settings'
 import Settings from '../../components/suggestions-settings'
 
-const mapStateToProps = ({settings: { favoriteQueue }}) => ({
+const mapStateToProps = ({settings: {
   favoriteQueue,
+  goalsFilter,
+  rolesFilter,
+  tierFilter,
+}}) => ({
+  favoriteQueue,
+  goalsFilter,
+  rolesFilter,
+  tierFilter,
 })
 
 const mapDispatchToProps = dispatch => ({
-  setFavoriteQueue: champion => dispatch(updateField('favoriteQueue', champion)),
+  updateField: (field, value) => dispatch(updateField(field, value)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)

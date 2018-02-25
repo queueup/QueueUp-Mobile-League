@@ -1,20 +1,34 @@
 import React from 'react'
 import {
   AsyncStorage,
+  Image,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native'
-import { Actions } from 'react-native-router-flux'
+import Slider from '@realgeeks/react-native-multi-slider'
 import PropTypes from 'prop-types'
 import styles from './styles'
+import goals from '../../constants/goals'
 import queues from '../../constants/queues'
+import roles from '../../constants/roles'
+import tiers from '../../constants/tiers'
 import BackgroundView from '../background-view'
 import NavigationBar from '../navigation-bar'
 
+import { colors } from '../../constants/style'
+import { leagues } from '../../images'
+
 import I18n from '../../i18n'
 
-const SuggestionsSettings = ({ favoriteQueue, setFavoriteQueue }) => (
+const SuggestionsSettings = ({
+  favoriteQueue,
+  goalsFilter,
+  rolesFilter,
+  tierFilter,
+  updateField,
+}) => (
   <BackgroundView>
     <View style={{flex: 1}}>
       <NavigationBar
@@ -23,33 +37,68 @@ const SuggestionsSettings = ({ favoriteQueue, setFavoriteQueue }) => (
         extended
         hideRight
       />
-      {queues.map(q => (
-        <TouchableOpacity
-          key={`${q.id}_${favoriteQueue.id === q.id ? 'active' : 'inactive'}`}
-          onPress={() => {
-            setFavoriteQueue(q)
-            AsyncStorage.setItem('@QueueUp:favoriteQueue', q.id)
-            Actions.pop()
-          }}
-          style={favoriteQueue.id === q.id
-            ? styles.activeQueueButton
-            : styles.queueButton}
-        >
-          <Text style={styles.queueButtonText}>{q.label}</Text>
-        </TouchableOpacity>
-      ))}
+      <ScrollView style={styles.mainContainer}>
+        <View style={{flex: 1}}>
+          <View style={styles.rolesContainer}>
+            {tiers.map(tier => <Image key={tier} source={leagues[tier].i ? leagues[tier].i : leagues[tier]} style={styles.tierImage} />)}
+          </View>
+          <Slider
+            containerStyle={styles.sliderContainer}
+            max={tiers.length - 2}
+            selectedStyle={{backgroundColor: colors.blue}}
+            unselectedStyle={{backgroundColor: colors.lightGrey}}
+            values={tierFilter}
+          />
+        </View>
+        <View style={styles.rolesContainer}>
+          {roles.map(role => {
+            const exists = rolesFilter.find(r => r == role.id)
+            return (
+              <TouchableOpacity
+                key={`${role.id}_${exists ? 'active' : 'inactive'}`}
+                onPress={() => exists
+                  ? updateField('rolesFilter', rolesFilter.filter(r => r !== role.id))
+                  : updateField('rolesFilter', [...rolesFilter, role.id])
+                }
+                style={[exists ? {opacity: 1} : {opacity: 0.7}, styles.roleImageContainer]}
+              >
+                <Image
+                  source={role.image}
+                  style={styles.roleImage}
+                />
+              </TouchableOpacity>
+            )})}
+        </View>
+        <View style={styles.queuesContainer}>
+          {queues.map(q => (
+            <TouchableOpacity
+              onPress={() => {
+                updateField('favoriteQueue', q)
+                AsyncStorage.setItem('@QueueUp:favoriteQueue', q.id)
+              }}
+            >
+              <Text
+                key={q.id}
+                style={styles.queue}
+              >
+                {q.label + (favoriteQueue.id === q.id)}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   </BackgroundView>
 )
 
 SuggestionsSettings.propTypes = {
   favoriteQueue: PropTypes.object,
-  setFavoriteQueue: PropTypes.func,
+  updateField: PropTypes.func,
 }
 
 SuggestionsSettings.defaultProps = {
   favoriteQueue: {},
-  setFavoriteQueue: () => null,
+  updateField: () => null,
 }
 
 export default SuggestionsSettings

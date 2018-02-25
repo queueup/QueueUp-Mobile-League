@@ -19,7 +19,7 @@ export class ApiSync {
     this.dispatch = dispatch
   }
 
-  initialSync() {
+  async initialSync() {
     apiWrapper
       .getLeagueProfile()
       .then(r => {

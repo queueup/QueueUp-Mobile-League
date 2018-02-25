@@ -1,6 +1,6 @@
 {
 	"name": "QueueUp",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"private": true,
 	"scripts": {
 		"check-translations": "babel-node scripts/check-translations.js",
@@ -14,6 +14,7 @@
 		"translate": "babel-node scripts/update-translations.js && ./node_modules/.bin/eslint app/i18n/locales/*.json"
 	},
 	"dependencies": {
+		"@realgeeks/react-native-multi-slider": "https://github.com/RealGeeks/react-native-multi-slider",
 		"axios": "^0.17.0",
 		"humps": "^2.0.1",
 		"immutability-helper": "^2.4.0",

@@ -18,6 +18,14 @@ import { apiWrapper } from '../../utils'
 
 const menu = displayUser => [
   {
+    title: I18n.t('settings_suggestions'),
+    data: [{
+      icon: 'settings',
+      label: I18n.t('settings_suggestions'),
+      onPress: () => Actions.suggestionsSettings(),
+    }],
+  },
+  {
     title: I18n.t('settings_summoner'),
     data: [
       {
@@ -64,11 +72,6 @@ const menu = displayUser => [
         icon: 'microphone',
         label: I18n.t('settings_communication'),
         onPress: () => Actions.communicationSettings(),
-      },
-      {
-        icon: 'settings',
-        label: I18n.t('settings_suggestions'),
-        onPress: () => Actions.suggestionsSettings(),
       },
       {
         icon: 'padlock',

@@ -8,12 +8,15 @@ const initialState = {
   description: '',
   editing: false,
   favoriteQueue: {},
+  goalsFilter: [],
   nextSuggestionsDate: null,
   profileId: '',
+  rolesFilter: [],
   selectedChampions: [],
   selectedGoals: [],
   selectedLocales: [],
   selectedRoles: [],
+  tierFilter: [0, 5],
 }
 
 export default (state = initialState, action) => {

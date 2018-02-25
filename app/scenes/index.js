@@ -160,6 +160,7 @@ Scenes.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
+  initSettings: value => dispatch(initSettings(value)),
   updateSetting: (field, value) => dispatch(updateField(field, value)),
 })
 

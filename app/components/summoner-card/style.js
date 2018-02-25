@@ -6,6 +6,7 @@ export const style = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 20,
     marginTop: -100,
   },
   description: {
